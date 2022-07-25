@@ -33,9 +33,7 @@ def downloadJPG():
         print('Download Progress: ' + "{:6.2f}".format(progress) + '%')
 
         diff = end - start
-        estimate = int(diff) * int(numberOfPhotos) - i
-        if estimate < 0:
-            estimate = 0
+        estimate = int(diff * float(numberOfPhotos) - i)
         print('Estimated time remaining: ' + str(estimate) + ' seconds')
 
     print("Done!\n")
