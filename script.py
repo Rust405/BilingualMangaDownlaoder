@@ -24,7 +24,7 @@ def downloadJPG():
 
         start = time.time()
 
-        maxTries = 3
+        maxTries = 5
         tries = maxTries
         while tries > 0:
             try:
@@ -34,14 +34,13 @@ def downloadJPG():
                 urllib.request.urlretrieve(downloadURL, "download/" + file)
             except:
                 tries -= 1
-            else:
                 if tries == 0:
                     os.system("cls")
                     print('Download failed!\n')
                     clearDownloadFolder()
                     downloadJPG()
-                else:
-                    break
+            else:
+                break
 
         end = time.time()
 
@@ -63,7 +62,7 @@ def convertToPDF():
     title = input("> Title of output file: ")
 
     print("Converting to pdf...")
-    
+
     for image in images:
         pdf.add_page()
         pdf.image(image, 0, 0, 210, 297)
