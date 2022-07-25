@@ -62,12 +62,11 @@ def convertToPDF():
     pdf = FPDF()
     title = input("> Title of output file: ")
 
+    print("Converting to pdf...")
+    
     for image in images:
         pdf.add_page()
         pdf.image(image, 0, 0, 210, 297)
-
-        os.system("cls")
-        print("Converting to pdf...")
 
     pdf.output("output/" + title + ".pdf", "F")
     print("Done!")
