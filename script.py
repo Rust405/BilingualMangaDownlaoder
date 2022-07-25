@@ -4,8 +4,6 @@ import glob
 import time
 from fpdf import FPDF
 
-numberOfPhotos = 0
-
 
 def makeDirectories():
     if not os.path.exists('download'):
@@ -17,7 +15,6 @@ def makeDirectories():
 def downloadJPG():
     lastImgURL = input("> Image URL of last image: ")
     lastPhotoNumber = lastImgURL[-9:-4]
-    global numberOfPhotos
     numberOfPhotos = int(lastPhotoNumber)
     imgURL = lastImgURL[:-10]
 
@@ -26,11 +23,31 @@ def downloadJPG():
         downloadURL = imgURL + file
 
         start = time.time()
-        urllib.request.urlretrieve(downloadURL, "download/" + file)
+
+        maxTries = 3
+        tries = maxTries
+        while tries > 0:
+            try:
+                if tries < maxTries:
+                    print('\n## Retrying... (' + str(tries) +
+                          ' attempt(s) remaining)')
+                urllib.request.urlretrieve(downloadURL, "download/" + file)
+            except:
+                tries -= 1
+            else:
+                if tries == 0:
+                    os.system("cls")
+                    print('Download failed!\n')
+                    clearDownloadFolder()
+                    downloadJPG()
+                else:
+                    break
+
         end = time.time()
 
         os.system("cls")
-        print('Downloaded ' + file)
+        print('Downloaded ' + file + ' (' + str(i) +
+              '/' + str(numberOfPhotos) + ' images)')
         progress = i/int(numberOfPhotos)*100
         diff = end - start
         estimate = int(diff * float(numberOfPhotos - i))
@@ -42,30 +59,18 @@ def downloadJPG():
 
 def convertToPDF():
     images = glob.glob('download/*.jpg')
-    i = 1
     pdf = FPDF()
-    global numberOfPhotos
-
     title = input("> Title of output file: ")
 
     for image in images:
-        start = time.time()
         pdf.add_page()
         pdf.image(image, 0, 0, 210, 297)
-        end = time.time()
 
         os.system("cls")
         print("Converting to pdf...")
 
-        progress = i/int(numberOfPhotos)*100
-        diff = end - start
-        estimate = int(diff * float(numberOfPhotos - i))
-        print('Progress: '+"{:3.2f}".format(progress) +
-              '% (Estimated ' + str(estimate) + 's remaining)')
-        i += 1
-
     pdf.output("output/" + title + ".pdf", "F")
-    print("Done!\n")
+    print("Done!")
 
 
 def clearDownloadFolder():
