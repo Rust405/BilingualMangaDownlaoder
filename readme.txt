@@ -1,9 +1,9 @@
 1. Requires fpdf, requests, and beautifulsoup4, execute "py -m pip install x" before running if not installed
 2. Comes with download progress and time estimate
-3. Error handling is limited to when the image link is broken or invalid.
+3. Error handling is limited to when the panel image link is broken or invalid.
 
 To use, 
-1. Enter URL of last image in a volume, example : https://ipfs.io/ipfs/bafybeieiavplh2hz6kssubijy2fevuduh7lejhfdrlwlrl5ojfyyrnvigi/87274eeac32f16e2acd382f20b39a0eb/P00162.jpg
+1. Enter URL of a volume, example: https://bilingualmanga.net/manga/%e5%b0%91%e5%a5%b3%e7%b5%82%e6%9c%ab%e6%97%85%e8%a1%8c/volume-1/
 
 2. Wait for download to complete
 
