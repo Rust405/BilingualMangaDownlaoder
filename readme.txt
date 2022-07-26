@@ -3,7 +3,7 @@
 3. There's no error handling at the moment
 
 To use, 
-1. Enter URL of last image in volume, example : https://ipfs.io/ipfs/bafybeieiavplh2hz6kssubijy2fevuduh7lejhfdrlwlrl5ojfyyrnvigi/87274eeac32f16e2acd382f20b39a0eb/P00162.jpg
+1. Enter URL of last image in a volume, example : https://ipfs.io/ipfs/bafybeieiavplh2hz6kssubijy2fevuduh7lejhfdrlwlrl5ojfyyrnvigi/87274eeac32f16e2acd382f20b39a0eb/P00162.jpg
 
 2. Wait for download to complete
 
