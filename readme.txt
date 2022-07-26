@@ -1,4 +1,4 @@
-1. Requires fpdf, lxml, and beautifulsoup4, execute "py -m pip install x" before running if not installed
+1. Requires fpdf, requests, and beautifulsoup4, execute "py -m pip install x" before running if not installed
 2. Comes with download progress and time estimate
 3. Error handling is limited to when the image link is broken or invalid.
 
