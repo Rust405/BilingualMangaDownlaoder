@@ -33,7 +33,9 @@ def downloadImg():
     for element in elements:
         urlList.append(element['data-src'])
 
-    for i in range(1, len(urlList)+1):
+    numberOfImg = len(urlList)
+
+    for i in range(1, numberOfImg + 1):
 
         start = time.time()
 
@@ -62,11 +64,11 @@ def downloadImg():
         end = time.time()
 
         diff = end - start
-        progress = i/len(urlList)*100
-        estimate = int(diff * float(len(urlList) - i))
+        progress = i/numberOfImg * 100
+        estimate = int(diff * float(numberOfImg - i))
 
         os.system("cls")
-        print('Downloaded (' + str(i) + '/' + str(len(urlList)) + ')')
+        print('Downloaded (' + str(i) + '/' + str(numberOfImg) + ')')
         print('Progress: '+"{:3.2f}".format(progress) +
               '% (Estimated ' + str(estimate) + 's remaining)')
 
