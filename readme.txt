@@ -11,4 +11,4 @@ To use,
 
 4. Done, repeat for each volume.
 
-If it fails just run the script again, it will clear the download folder and restart.
+Download may still fail after several retries, the download folder will be cleared and you can try again. You won't have to wait as long since most downloaded images would be cached.
