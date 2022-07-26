@@ -1,6 +1,6 @@
 1. Requires fpdf, execute "py -m pip install fpdf" before running if not installed
 2. Comes with download progress and time estimate
-3. There's no error handling at the moment
+3. Error handling is limited to when the image link is broken or invalid.
 
 To use, 
 1. Enter URL of last image in a volume, example : https://ipfs.io/ipfs/bafybeieiavplh2hz6kssubijy2fevuduh7lejhfdrlwlrl5ojfyyrnvigi/87274eeac32f16e2acd382f20b39a0eb/P00162.jpg
